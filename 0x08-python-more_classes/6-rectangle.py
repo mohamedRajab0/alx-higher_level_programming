@@ -3,7 +3,11 @@
 
 
 class Rectangle:
-    """Represent a rectangle."""
+    """Represent a rectangle.
+
+    Attributes:
+        number_of_instances (int): The number of Rectangle instances.
+    """
 
     number_of_instances = 0
 
@@ -20,7 +24,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Get/set the width of the rectangle."""
+        """Get/set the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -33,7 +37,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the rectangle."""
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -45,17 +49,20 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Get the area of the rectangle."""
+        """Return the area of the Rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
-        """Get the perimeter of the rectangle."""
+        """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return ((2 * self.__width) + (2 * self.__height))
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """Print the rectangle with character #"""
+        """Return the printable representation of the Rectangle.
+
+        Represents the rectangle with the # character.
+        """
         if self.__width == 0 or self.__height == 0:
             return ("")
 
@@ -67,11 +74,12 @@ class Rectangle:
         return ("".join(rect))
 
     def __repr__(self):
-        """"Return the str rectangle"""
+        """Return the string representation of the Rectangle."""
         rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height)
+        rect += ", " + str(self.__height) + ")"
         return (rect)
+
     def __del__(self):
-        """"Print the message for deleting rectangle object"""
+        """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
-        print("Bye rectangle ...")
+        print("Bye rectangle...")
