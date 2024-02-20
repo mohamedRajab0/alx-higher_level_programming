@@ -1,4 +1,4 @@
-!#/usr/bin/pyton3
+#!/usr/bin/pyton3
 """
 Define a function that takes a string and appends it 
 to the end of the file
