@@ -3,6 +3,7 @@
 
 from .base import Base
 
+
 class Rectangle(Base):
     """Class Rectangle that inherits from Base class"""
 
@@ -23,10 +24,14 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Retrieves the width attribute."""
+
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Sets the width attribute."""
+
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -35,10 +40,14 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Retrieves the height attribute."""
+
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Sets the height attribute."""
+
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -47,10 +56,13 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Retrieves the x attribute."""
+
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Sets the x attribute."""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -59,10 +71,14 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Retrieves the y attribute."""
+
         return self.__y
 
     @y.setter
     def y(self, value):
+        """Sets the y attribute."""
+
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -70,14 +86,16 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """define area method
-        Return: the area of rectangle
+         """Calculates the area of a Rectangle instance.
+        Returns: area
         """
-        return (self.width * self.height)
+
+        return self.width * self.height
 
     def display(self):
-        """ define display function the stdout the rectangle"""
-        print("\n" * self.y, end ="")
+        """Prints the Rectangle instance with the # character."""
+
+        print("\n" * self.y, end="")
         for v in range(self.height):
             print (" " * self.x, end ="")
             for h in range(self.width):
@@ -85,15 +103,20 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """define str function that return format string"""
+        """Returns a string representation of a Rectangle instance."""
+
         return f"[rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
-        """define update function that assgin key/value arg to attribute
+         """Updates attributes of an instance.
         Args:
-            *args: positional arguments
-            **kwargs: keyword arguments represnting attribute to update
+            - id attribute
+            - width attribute
+            - height attribute
+            - x attribute
+            - y attribute
         """
+
         if args:
             attr = ['id', 'x', 'y', 'width', 'height']
             for i, value in enumerate(args):
@@ -113,6 +136,7 @@ class Rectangle(Base):
                 file.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
 
     def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
         return {'id': self.id,
                 'width': self.width,
                 'height': self.height,

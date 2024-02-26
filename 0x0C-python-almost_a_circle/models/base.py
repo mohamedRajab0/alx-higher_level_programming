@@ -2,6 +2,7 @@
 """Defines a base model class."""
 import json
 
+
 class Base:
     """Represent the base model.
         Represents the "base" for all other classes in project 0x0C*.
@@ -19,7 +20,7 @@ class Base:
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects +=1
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -42,16 +43,19 @@ class Base:
             list_objs = []
         filename = cls.__name__ + ".json"
         with open(filename, "w") as file:
-            file.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
+            file.write(cls.to_json_string(
+                [obj.to_dictionary() for obj in list_objs]))
 
     @staticmethod
     def from_json_string(json_string):
         """Return the deserialization of a JSON string.
                 Args:
-                    json_string (str): A JSON str representation of a list of dicts.
+                    json_string (str): A JSON str representation
+                    of a list of dicts.
                 Returns:
                     If json_string is None or empty - an empty list.
-                    Otherwise - the Python list represented by json_string.
+                    Otherwise - the Python list represented
+                    by json_string.
         """
         if json_string is None or len(json_string) == 0:
             return None
