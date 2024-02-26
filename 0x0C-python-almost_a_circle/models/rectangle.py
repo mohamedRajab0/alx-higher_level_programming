@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Module Rectangle class """
 
-from models.base import Base
+from .base import Base
 
 class Rectangle(Base):
     """Class Rectangle that inherits from Base class"""
@@ -101,6 +101,16 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+        def save_to_file(cls, list_objs):
+            """"define save to file function
+            Args:
+                list_objs: list which will save to file
+                """
+            list_objs = []
+            filename = cls.__name__ + ".json"
+            with open(filename, 'w') as file:
+                file.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
 
     def to_dictionary(self):
         return {'id': self.id,
