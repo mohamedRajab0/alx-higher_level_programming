@@ -94,7 +94,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """Returns a string representation of a Rectangle instance."""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return (f"[Rectangle] ({self.id}) {self.x}/"
+                f"{self.y} - {self.width}/{self.height}")
 
     def update(self, *args, **kwargs):
         """Updates attributes of an instance."""
@@ -117,4 +118,5 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle."""
-        return {'id': self.id, 'width': self.width, 'height': self.height, 'x': self.x, 'y': self.y}
+        return {'id': self.id, 'width': self.width,
+                'height': self.height, 'x': self.x, 'y': self.y}
