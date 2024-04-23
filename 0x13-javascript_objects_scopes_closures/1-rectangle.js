@@ -1,5 +1,5 @@
 #!/usr/bin/node
-class Rectangle{
+class Rectangle {
   constructo (w, h) {
     this.width = w;
     this.height = h;
